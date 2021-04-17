@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import tiles from '../../../img/tiles.jpeg';
 import toilet from '../../../img/morderToilet.jpeg';
 import bathroom from '../../../img/bathroom.jpeg';
@@ -6,30 +6,16 @@ import grayTiles from '../../../img/grayWallTiles.jpeg';
 import stoneTiles from '../../../img/colorfulStone.jpeg'
 import ServicesDetails from '../ServicesDetails/ServicesDetails';
 
-const serviceData = [
-    {
-        name: 'Fluoride Treatment',
-        img: tiles
-    },
-    {
-        name: 'Cavity Filling',
-        img: toilet
-    },
-    {
-        name: 'Teeth Whitening',
-        img: bathroom
-    },
-    {
-        name: 'Teeth Whitening',
-        img: grayTiles
-    },
-    {
-        name: 'Teeth Whitening',
-        img: stoneTiles
-    }
-]
+
 
 const Services = () => {
+    const [serviceData, setServiceData] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/services')
+        .then(res => res.json())
+        .then(data => setServiceData(data))
+        
+    }, [])
     return (
         <section class="services-container pt-5 pb-5 bg-light">
             <div class="text-center">

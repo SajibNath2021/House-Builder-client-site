@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import Sidebar from '../../Shared/Sidebar/Sidebar';
 const containerStyle ={
     backgroundColor: '#F4FDF8',
@@ -6,6 +7,19 @@ const containerStyle ={
 }
 
 const OrderList = () => {
+
+    const { name } = useParams();
+
+    const [serviceData, setServiceData] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/booksPay/' + name)
+            .then(res => res.json())
+            .then(data => setServiceData(data))
+
+    }, [])
+
+
+
     return (
         <div style={containerStyle} className="row">
             <div className="col-md-3">
@@ -13,7 +27,7 @@ const OrderList = () => {
             </div>
 
             <div className="col-md-8">
-                 <h1>OrderList</h1>
+            
             </div>
         </div>
     );

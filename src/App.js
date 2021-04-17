@@ -31,10 +31,8 @@ function App() {
           <Route exact path = "/">
             <Home />
           </Route>
-          <PrivateRoute path='/book/:name'>
-            <Book></Book>
-          </PrivateRoute>
-          <PrivateRoute path='/booksPay'>
+         
+          <PrivateRoute path='/booksPay/:name'>
             <Orders></Orders>
           </PrivateRoute>
           <PrivateRoute path='/bookingList'>

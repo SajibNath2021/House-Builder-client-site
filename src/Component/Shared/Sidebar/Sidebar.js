@@ -1,17 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './Sidebar.css'
 import { faCog,faUserPlus, faSignOutAlt, faCalendar, faGripHorizontal, faUsers } from '@fortawesome/free-solid-svg-icons';
 import {  faFileAlt } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Sidebar = () => {
+    const { name } = useParams();
+    console.log(name);
     return (
         <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{height:"100vh"}}>
             <ul className="list-unstyled">
                 
                 <li>
-                    <Link to="/booksPay" className="text-white">
+                    <Link to={`/booksPay/${name}`} className="text-white">
                         <FontAwesomeIcon icon={faCalendar} /> <span>Books & Pay</span> 
                     </Link>
                 </li>
