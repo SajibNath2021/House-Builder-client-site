@@ -16,6 +16,7 @@ import Review from "./Component/Book/Review/Review";
 import AddService from "./Component/Book/AddService/AddService";
 import ManageService from "./Component/Book/ManageService/ManageService";
 import BookingList from "./Component/Book/BookingList/BookingList";
+import AddAdmin from "./Component/Book/AddAdmin/AddAdmin";
 
 export const UserContext = createContext();
 
@@ -46,6 +47,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path='/addService'>
             <AddService></AddService>
+          </PrivateRoute>
+          <PrivateRoute path='/addAdmin'>
+            <AddAdmin></AddAdmin>
           </PrivateRoute>
           <PrivateRoute path='/manageService'>
             <ManageService></ManageService>

@@ -56,16 +56,17 @@ const AddService = () => {
             </div>
 
             <div className="col-md-8">
-                <h2>this is admin</h2>
+                <h1>Add New Services</h1>
+                <p>Add new service & get more profit</p>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
-                    <input name="name" placeholder="product name" ref={register} />
+                    <input className='form-control' name="name" placeholder="product name" ref={register} required/>
                     <br />
-                    <input name="addPrice" placeholder="add price" ref={register} />
+                    <input className='form-control' name="addPrice" placeholder="add price" ref={register} required />
                     <br />
-                    <input name="exampleRequired" type='file' onChange={handleImage} />
+                    <input className='form-control' name="exampleRequired" type='file' onChange={handleImage} required/>
                     <br />
-                    <input type="submit" />
+                    <input className="btn btn-primary" type="submit" />
                 </form>
             </div>
         </div>

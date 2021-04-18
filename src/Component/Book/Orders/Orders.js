@@ -21,10 +21,28 @@ const Orders = () => {
 
     }, [])
 
-    const onSubmit =()=>{
+    const onSubmit = data => {
+        const eventData = {
+            ...serviceData,
+           userName: data.userName,
+            email: data.email,
+            productName:data.productName,
+            price: data.price,
+           
+            
 
-    }
-
+        }
+        const url = `http://localhost:5000/payOrders`;
+        console.log(eventData);
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(eventData)
+        })
+            .then(res => console.log('server side respond', res))
+    };
     return (
         <div style={containerStyle} className="row">
             <div className="col-md-3">
@@ -32,24 +50,24 @@ const Orders = () => {
             </div>
 
             <div className="col-md-8">
-                <div className="row">
-                    <div class="col-md-4 card  ">
+                     <h1>Books & Pay</h1>
+                     <p>Confirm To Your Books By File Down Form Carefully & Pay ..Thank You!!</p>
+                    
                         <form onSubmit={handleSubmit(onSubmit)}>
 
-                            <input name="name" placeholder="product name" ref={register} />
+                            <input class="form-control" name="userName" placeholder="your name" ref={register} required />
                             <br />
-                            <input name="addPrice" placeholder="add price" ref={register} />
+                            <input class="form-control" name="email" placeholder="your email" ref={register} required />
                             <br />
-                            <input name="addPrice" placeholder={serviceData.name} ref={register} />
+                            {/* <input name="productName" placeholder={serviceData.name} ref={register} />
+                            <br /> */}
+                            <p name="productName" className="text-secondary">Product Name : {serviceData.name}</p>
                             <br />
-                            <p className="text-secondary">Product Name : {serviceData.name}</p>
-                            <br />
-                            <p className="text-secondary">Price : {serviceData.addPrice}</p>
-                            <input type="submit" />
+                            <p name= 'price' className="text-secondary">Your Service Charge Will Be : {serviceData.addPrice}</p>
+                            <input class="btn btn-primary" type="submit" />
                         </form>
                         
-                    </div>
-                </div>
+                    
             </div>
         </div>
     );

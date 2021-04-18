@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Testimonials.css'
 
 import wilson from '../../../img/review1.jpeg';
@@ -7,29 +7,37 @@ import review3 from '../../../img/review3.jpeg';
 import Testimonial from '../Testimonial/Testimonial';
 
 const Testimonials = () => {
-    const testimonialData = [
-        {
-            quote:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-            name: 'Wilson Harry',
-            from: 'California',
-            img: wilson,
-        },
-        {
-            quote:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-            name: 'Ema Gomez',
-            from: 'California',
-            img: review2,
-        },
-        {
-            quote:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-            name: 'Aliza Farari',
-            from: 'California',
-            img: review3,
-        },
-    ];
+    // const testimonialData = [
+    //     {
+    //         quote:
+    //             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
+    //         name: 'Wilson Harry',
+    //         from: 'California',
+    //         img: wilson,
+    //     },
+    //     {
+    //         quote:
+    //             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
+    //         name: 'Ema Gomez',
+    //         from: 'California',
+    //         img: review2,
+    //     },
+    //     {
+    //         quote:
+    //             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
+    //         name: 'Aliza Farari',
+    //         from: 'California',
+    //         img: review3,
+    //     },
+    // ];
+
+    const [testimonialData, setTestimonialData] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/allReview')
+            .then(res => res.json())
+            .then(data => setTestimonialData(data))
+
+    }, [])
     return (
         <section className="testimonials my-5 py-5">
             <div className="container ImgQuato">

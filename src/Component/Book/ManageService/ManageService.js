@@ -33,11 +33,35 @@ const ManageService = () => {
             </div>
 
             <div className="col-md-8">
+            <table className="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Product Name</th>
+                                        <th scope="col">Price</th>
+                                        <th>Clear services</th>
+                                        
+                                    </tr>
+                                </thead>
+                                </table>
+
                 {
                     serviceData.map(services =>
                         <div>
-                            Name:  {services.name}  Price: {services.addPrice}
-                            <button onClick={() => handleDelete(event, services._id)}>Delete Item</button>
+
+                            <table className="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>{services.name}</td>
+                                        <td>{services.addPrice}</td>
+                                        <td> <button onClick={() => handleDelete(event, services._id)}>Delete Item</button></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+
                         </div>)
 
                 }
