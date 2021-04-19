@@ -11,7 +11,7 @@ const AboutCompany = () => {
                         <img className="img-fluid" src={Company} alt="" />
                     </div>
                     <div className="col-md-5 align-self-center">
-                        <p>ABOUT OUR COMPANY</p>
+                        <p className='text-primary'>ABOUT OUR COMPANY</p>
                         <h3>Explore Modern Tiles
                            <br /> Stone & Toilet Services Agency.
                             <br /> We Are Very Popular For This

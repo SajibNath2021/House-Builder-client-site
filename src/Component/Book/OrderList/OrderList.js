@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../../Shared/Sidebar/Sidebar';
 
 const containerStyle = {
-    backgroundColor: '#F4FDF8',
+    backgroundColor: '#F4F7FC',
     height: '100%'
 }
 

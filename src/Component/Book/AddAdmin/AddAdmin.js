@@ -2,7 +2,7 @@ import React from 'react';
 import Sidebar from '../../Shared/Sidebar/Sidebar';
 import { useForm } from "react-hook-form";
 const containerStyle = {
-    backgroundColor: '#F4FDF8',
+    backgroundColor: '#F4F7FC',
     height: '100%'
 }
 

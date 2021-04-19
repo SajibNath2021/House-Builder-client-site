@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import Sidebar from '../../Shared/Sidebar/Sidebar';
 import BookingListCard from './BookingListCard';
 const containerStyle = {
-    backgroundColor: '#F4FDF8',
+    backgroundColor: '#F8F9FA',
     height: '100%'
 }
 

@@ -4,7 +4,7 @@ import { UserContext } from '../../App';
 import firebase from 'firebase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
-
+import './Login.css'
 import "firebase/auth";
 import firebaseConfig from './config';
 
@@ -38,10 +38,10 @@ const Login = () => {
             });
     }
     return (
-        <div style={{textAlign:'center'}}>
+        <div className='card cardDesign' style={{textAlign:'center'}}>
            <h3>Login With Google</h3>
-            <button onClick={handleGoogle}><FontAwesomeIcon icon={faGoogle} />  Sign in with google</button> 
-            <p>Don,t have account ? Create an account</p>
+            <button className="btnDesign" onClick={handleGoogle}><FontAwesomeIcon icon={faGoogle} />  Sign in with google</button> 
+            <p>Don,t have account ? <span style={{color:'blue'}}> Create an account</span></p>
         </div>
     );
 };

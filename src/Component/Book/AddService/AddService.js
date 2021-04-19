@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Sidebar from '../../Shared/Sidebar/Sidebar';
 const containerStyle = {
-    backgroundColor: '#F4FDF8',
+    backgroundColor: '#F4F7FC',
     height: '100%'
 }
 import { useForm } from "react-hook-form";

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../../Shared/Sidebar/Sidebar';
 
 const containerStyle = {
-    backgroundColor: '#F4FDF8',
+    backgroundColor: '#F4F7FC',
     height: '100%'
 }
 const ManageService = () => {
@@ -57,7 +57,7 @@ const ManageService = () => {
                                         <th scope="row"></th>
                                         <td>{services.name}</td>
                                         <td>{services.addPrice}</td>
-                                        <td> <button onClick={() => handleDelete(event, services._id)}>Delete Item</button></td>
+                                        <td> <button className="btn btn-primary" onClick={() => handleDelete(event, services._id)}>Delete Item</button></td>
                                     </tr>
 
                                 </tbody>

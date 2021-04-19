@@ -5,7 +5,7 @@ import { UserContext } from '../../../App';
 
 
 const containerStyle = {
-    backgroundColor: '#F4FDF8',
+    backgroundColor: '#F8F9FA',
     height: '100%'
 }
 

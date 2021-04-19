@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './Sidebar.css'
-import { faCog,faUserPlus, faSignOutAlt, faCalendar, faGripHorizontal, faUsers } from '@fortawesome/free-solid-svg-icons';
-import {  faFileAlt } from '@fortawesome/free-regular-svg-icons'
+import { faUserPlus, faSignOutAlt, faShoppingBag, faShoppingCart, faPlus, faComment, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faFileAlt } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { UserContext } from '../../../App';
 
@@ -21,55 +21,58 @@ const Sidebar = () => {
             .then((res) => res.json())
             .then((data) => setIsAdmin(data));
     }, [loggedInUser.email]);
-    
+
 
     return (
-        <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{height:"100vh"}}>
+        <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{ height: "100vh" }}>
             <ul className="list-unstyled">
-            
-            {!isAdmin && (
+                <Link style={{ color: 'white' }} class="nav-link active" aria-current="page" to='/'>
+                    <FontAwesomeIcon icon={faHome} /> <span>Home</span>
+                </Link>
+                <br />
+                {!isAdmin && (
                     <div>
-                        <Link class="nav-link active" aria-current="page" to='/'>Home</Link>
-                        
-                <li>
-                    <Link to={`/booksPay/${name}`} className="text-white">
-                        <FontAwesomeIcon icon={faCalendar} /> <span>Books & Pay</span> 
-                    </Link>
-                </li>
-                <li>
-                    <Link to='/bookingList' className="text-white">
-                        <FontAwesomeIcon icon={faGripHorizontal} /> <span>Booking List</span> 
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/review" className="text-white">
-                        <FontAwesomeIcon icon={faFileAlt} /> <span>Review</span>
-                    </Link>
-                </li>
-                </div>)}
+
+
+                        <li>
+                            <Link to={`/booksPay/${name}`} className="text-white">
+                                <FontAwesomeIcon icon={faShoppingCart} /> <span>Books & Pay</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/bookingList' className="text-white">
+                                <FontAwesomeIcon icon={faShoppingBag} /> <span>Booking List</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/review" className="text-white">
+                                <FontAwesomeIcon icon={faComment} /> <span>Review</span>
+                            </Link>
+                        </li>
+                    </div>)}
                 {isAdmin && (
                     <div>
-                <li>
-                    <Link to="/orderList" className="text-white">
-                        <FontAwesomeIcon icon={faUserPlus} /> <span>Order List</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/addService" className="text-white" >
-                      <FontAwesomeIcon icon={faCog} /> <span>Add Service</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/addAdmin" className="text-white">
-                        <FontAwesomeIcon icon={faGripHorizontal} /> <span>Add Admin</span> 
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/manageService" className="text-white">
-                        <FontAwesomeIcon icon={faGripHorizontal} /> <span>Manage Services</span> 
-                    </Link>
-                </li>
-                </div>
+                        <li>
+                            <Link to="/orderList" className="text-white">
+                                <FontAwesomeIcon icon={faShoppingBag} /> <span>Order List</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/addService" className="text-white" >
+                                <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/addAdmin" className="text-white">
+                                <FontAwesomeIcon icon={faUserPlus} /> <span>Add Admin</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/manageService" className="text-white">
+                                <FontAwesomeIcon icon={faGripHorizontal} /> <span>Manage Services</span>
+                            </Link>
+                        </li>
+                    </div>
                 )}
             </ul>
             <div>

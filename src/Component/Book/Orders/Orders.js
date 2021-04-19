@@ -5,11 +5,12 @@ import { useForm } from "react-hook-form";
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { CardNumberElement , CardExpiryElement,CardCvcElement } from '@stripe/react-stripe-js';
-
+import { faCcStripe, faCcVisa } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const stripePromise = loadStripe('pk_test_51Ie2oUFlv1kVgnJnxJ6mpSN8Ud1OLDTKECb3V9WbWYQZq37COiIBIqwFAUO0BveFTbtizHjefwQYoi6TDje7d3Nk00aPLwieBR');
 
 const containerStyle = {
-    backgroundColor: '#F4FDF8',
+    backgroundColor: '#F8F9FA',
     height: '100%'
 }
 
@@ -65,7 +66,7 @@ const Orders = () => {
                     <br />
                     <input class="form-control" name="email" placeholder="your email" ref={register} required />
                     <br />
-                    <h5 >Pay With Stripe</h5>
+                    <h5 ><FontAwesomeIcon icon={faCcStripe}/> Pay With Stripe <FontAwesomeIcon icon={faCcVisa}/> </h5>
                     
                     <Elements stripe={stripePromise} >
                         <p class="badge bg-success text-wrap">Enter Card Number</p>
