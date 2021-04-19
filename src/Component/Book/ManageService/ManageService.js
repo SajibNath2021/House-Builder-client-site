@@ -33,6 +33,8 @@ const ManageService = () => {
             </div>
 
             <div className="col-md-8">
+                <h1>Manage Service</h1>
+                <p class="badge bg-success text-wrap">manage the unActive service  </p>
             <table className="table table-striped">
                                 <thead>
                                     <tr>
@@ -52,7 +54,7 @@ const ManageService = () => {
                             <table className="table table-striped">
                                 <tbody>
                                     <tr>
-                                        <th scope="row">1</th>
+                                        <th scope="row"></th>
                                         <td>{services.name}</td>
                                         <td>{services.addPrice}</td>
                                         <td> <button onClick={() => handleDelete(event, services._id)}>Delete Item</button></td>

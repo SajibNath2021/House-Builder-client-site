@@ -57,7 +57,7 @@ const AddService = () => {
 
             <div className="col-md-8">
                 <h1>Add New Services</h1>
-                <p>Add new service & get more profit</p>
+                <p class="badge bg-success text-wrap">Add new service & get more profit</p>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <input className='form-control' name="name" placeholder="product name" ref={register} required/>

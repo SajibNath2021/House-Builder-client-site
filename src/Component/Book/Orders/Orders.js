@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Sidebar from '../../Shared/Sidebar/Sidebar';
 import { useForm } from "react-hook-form";
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import { CardNumberElement , CardExpiryElement,CardCvcElement } from '@stripe/react-stripe-js';
+
+const stripePromise = loadStripe('pk_test_51Ie2oUFlv1kVgnJnxJ6mpSN8Ud1OLDTKECb3V9WbWYQZq37COiIBIqwFAUO0BveFTbtizHjefwQYoi6TDje7d3Nk00aPLwieBR');
 
 const containerStyle = {
     backgroundColor: '#F4FDF8',
@@ -24,12 +29,13 @@ const Orders = () => {
     const onSubmit = data => {
         const eventData = {
             ...serviceData,
-           userName: data.userName,
+            userName: data.userName,
             email: data.email,
-            productName:data.productName,
+            productName: data.productName,
             price: data.price,
-           
-            
+          
+
+
 
         }
         const url = `http://localhost:5000/payOrders`;
@@ -50,24 +56,82 @@ const Orders = () => {
             </div>
 
             <div className="col-md-8">
-                     <h1>Books & Pay</h1>
-                     <p>Confirm To Your Books By File Down Form Carefully & Pay ..Thank You!!</p>
-                    
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                <h1>Books & Pay</h1>
+                <p class="badge bg-secondary text-wrap">Confirm To Your Books By File Down Form Carefully & Pay ..Thank You!!</p>
 
-                            <input class="form-control" name="userName" placeholder="your name" ref={register} required />
-                            <br />
-                            <input class="form-control" name="email" placeholder="your email" ref={register} required />
-                            <br />
-                            {/* <input name="productName" placeholder={serviceData.name} ref={register} />
-                            <br /> */}
-                            <p name="productName" className="text-secondary">Product Name : {serviceData.name}</p>
-                            <br />
-                            <p name= 'price' className="text-secondary">Your Service Charge Will Be : {serviceData.addPrice}</p>
-                            <input class="btn btn-primary" type="submit" />
-                        </form>
-                        
+                <form onSubmit={handleSubmit(onSubmit)}>
+
+                    <input class="form-control" name="userName" placeholder="your name" ref={register} required />
+                    <br />
+                    <input class="form-control" name="email" placeholder="your email" ref={register} required />
+                    <br />
+                    <h5 >Pay With Stripe</h5>
                     
+                    <Elements stripe={stripePromise} >
+                        <p class="badge bg-success text-wrap">Enter Card Number</p>
+                        <CardNumberElement
+                            options={{ 
+                                style: {
+                                    base: {
+                                        fontSize: '16px',
+                                        color: '#424770',
+                                        '::placeholder': {
+                                            color: '#aab7c4',
+                                        },
+                                    },
+                                    invalid: {
+                                        color: '#9e2146',
+                                    },
+                                },
+                            }}
+                        />
+                    </Elements>
+                    <p class="badge bg-success text-wrap">Expiration Date</p>
+                    <Elements stripe={stripePromise} >
+                        < CardExpiryElement
+                            options={{
+                                style: {
+                                    base: {
+                                        fontSize: '16px',
+                                        color: '#424770',
+                                        '::placeholder': {
+                                            color: '#aab7c4',
+                                        },
+                                    },
+                                    invalid: {
+                                        color: '#9e2146',
+                                    },
+                                },
+                            }}
+                        />
+                    </Elements>
+                    <p class="badge bg-success text-wrap">CVC Code</p>
+                    <Elements stripe={stripePromise} >
+                        < CardCvcElement
+                            options={{
+                                style: {
+                                    base: {
+                                        fontSize: '16px',
+                                        color: '#424770',
+                                        '::placeholder': {
+                                            color: '#aab7c4',
+                                        },
+                                    },
+                                    invalid: {
+                                        color: '#9e2146',
+                                    },
+                                },
+                            }}
+                        />
+                    </Elements>
+                    
+                    <br />
+                    <p name="productName" >Your Product Name :<span className="fw-bold"> {serviceData.name}</span></p>
+                    <p name='price' >Your Service Charge Will Be : <span className="fw-bold"> {serviceData.addPrice}</span> </p>
+                    <input class="btn btn-primary" type="submit" />
+                </form>
+
+
             </div>
         </div>
     );

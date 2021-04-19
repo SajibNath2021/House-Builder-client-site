@@ -41,7 +41,7 @@ const Review = () => {
 
             <div className="col-md-8">
                 <h1>Review</h1>
-                <p>Plz Submit Your Review & Give Us Chance To Improve..Thank You!!</p>
+                <p class="badge bg-secondary text-wrap">Plz Submit Your Review & Give Us Chance To Improve..Thank You!!</p>
             <form  onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group">
                             <input type="text" style={{marginBottom:'8px'}} className="form-control" name="name" placeholder="name" ref={register} />
@@ -61,7 +61,7 @@ const Review = () => {
                             />
                         </div>
                         <div className="form-group" >
-                        <input  type="submit" />
+                        <input class='btn btn-primary' type="submit" />
                         </div>
                     </form>
             </div>

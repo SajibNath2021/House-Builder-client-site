@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { UserContext } from '../../../App';
 
 const Sidebar = () => {
-    const { name } = useParams();
+    const { name, email } = useParams();
     console.log(name);
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -26,8 +26,11 @@ const Sidebar = () => {
     return (
         <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{height:"100vh"}}>
             <ul className="list-unstyled">
+            
             {!isAdmin && (
                     <div>
+                        <Link class="nav-link active" aria-current="page" to='/'>Home</Link>
+                        
                 <li>
                     <Link to={`/booksPay/${name}`} className="text-white">
                         <FontAwesomeIcon icon={faCalendar} /> <span>Books & Pay</span> 
@@ -70,7 +73,7 @@ const Sidebar = () => {
                 )}
             </ul>
             <div>
-                <Link to="/" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
+                <Link to="/" onClick={() => setLoggedInUser({})} className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
             </div>
         </div>
     );

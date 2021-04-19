@@ -3,7 +3,7 @@ import React from 'react';
 import './Contact.css'
 const Contact = () => {
     return (
-        <section className="contact  my-5 py-5">
+        <section className="contact  py-5">
             <h5 className="text-primary text-center  mb-1">Contact</h5>
             <h3 className="text-white text-center  mb-5">Always Connect With US</h3>
             <div className="container">

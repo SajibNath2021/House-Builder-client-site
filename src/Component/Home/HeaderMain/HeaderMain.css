@@ -1,0 +1,15 @@
+.carousel-caption{
+    padding-bottom: 0rem;
+  }
+  @media only screen and (min-width: 600px) {
+    .carousel-caption{
+        padding-bottom: 29rem  !important;
+      }
+  }
+
+.welcomeText{
+  color: black
+  }
+  .carousel-item img{
+      opacity: .7;
+  }

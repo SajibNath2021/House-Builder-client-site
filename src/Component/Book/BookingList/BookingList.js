@@ -8,10 +8,10 @@ const containerStyle = {
 }
 
 const BookingList = () => {
-
+    const { email } = useParams();
     const [booking, setBooking] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/allBooking')
+        fetch('http://localhost:5000/bookingList')
             .then(res => res.json())
             .then(data => setBooking(data))
 
@@ -21,19 +21,21 @@ const BookingList = () => {
 
 
     return (
-        <div style={containerStyle} className="row">
+    <div style={containerStyle} className="row">
             <div className="col-md-3">
                 <Sidebar></Sidebar>
             </div>
 
             <div className="col-md-8 row">
                 <h1>Booking List Page</h1>
-                <p>See Your All Booking </p>
+                <p class="badge bg-secondary text-wrap" >See Your All Booking </p>
                 {
                     booking.map(orderList => <BookingListCard orderList={orderList}></BookingListCard>)
                 }
             </div>
         </div>
+    
+        
     );
 };
 

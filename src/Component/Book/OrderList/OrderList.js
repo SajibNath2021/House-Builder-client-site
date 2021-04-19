@@ -11,7 +11,7 @@ const OrderList = () => {
 
     const [booking, setBooking] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/allBooking')
+        fetch('http://localhost:5000/bookingList')
             .then(res => res.json())
             .then(data => setBooking(data))
 
@@ -29,7 +29,7 @@ const OrderList = () => {
 
             <div className="col-md-8">
                 <h2>All User Order List</h2>
-                <p>Don,t take any info because we provide user data security priority first !!</p>
+                <p class="badge bg-success text-wrap">Don,t take any info because we provide user data safety priority first !!</p>
             <table className="table table-striped">
             <thead>
                     <tr>

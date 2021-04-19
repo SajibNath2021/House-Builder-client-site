@@ -2,7 +2,8 @@ import React from 'react';
 import { useHistory } from 'react-router';
 
 const ServicesDetails = ({ service }) => {
-    const {name, addPrice, imageURL} = service;
+    const {name, addPrice, imageURL, email} = service;
+    console.log(email);
     const history = useHistory();
     const handleBook =()=>{
         history.push(`/booksPay/${name}`)

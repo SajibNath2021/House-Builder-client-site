@@ -36,12 +36,12 @@ const AddAdmin = () => {
             <div className="col-md-8">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h1>Add Admin</h1>
-                    <p>Write Admin Email</p>
+                    <p class="badge bg-success text-wrap">Write Admin Email</p>
                     <div className="form-group ">
                         <input type="text" style={{ marginBottom: '8px' }} className="form-control" name="email" placeholder="Email" ref={register} required />
                     </div>
                     <div className="form-group" >
-                        <input className="btn-primary" type="submit" />
+                        <input className="btn btn-primary" type="submit" />
                     </div>
                 </form>
             </div>

@@ -4,7 +4,7 @@ import Company from '../../../img/company.jpeg'
 const AboutCompany = () => {
     return (
 
-        <section className="features-service pb-0  pb-md-5 my-5 bg-light" >
+        <section className="features-service pb-0  pb-md-5 pt-5 bg-light" >
             <div className="container mb-5">
                 <div className="row mb-5">
                     <div className="col-md-7 mb-4 m-md-0">
