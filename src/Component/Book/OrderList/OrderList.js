@@ -11,7 +11,7 @@ const OrderList = () => {
 
     const [booking, setBooking] = useState([]);
     useEffect(() => {
-        fetch('https://secure-cove-75912.herokuapp.com/bookingList')
+        fetch('https://secure-cove-75912.herokuapp.com/booking')
             .then(res => res.json())
             .then(data => setBooking(data))
 
