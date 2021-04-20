@@ -4,7 +4,6 @@ import './ServicesDetails.css'
 
 const ServicesDetails = ({ service }) => {
     const { name, addPrice, imageURL, email } = service;
-    console.log(email);
     const history = useHistory();
     const handleBook = () => {
         history.push(`/booksPay/${name}`)
