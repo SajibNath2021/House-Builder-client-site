@@ -11,7 +11,7 @@ const BookingList = () => {
     const { email } = useParams();
     const [booking, setBooking] = useState([]);
     useEffect(() => {
-        fetch('https://secure-cove-75912.herokuapp.com/bookingList/'+ email)
+        fetch('https://secure-cove-75912.herokuapp.com/bookingList?'+ email)
             .then(res => res.json())
             .then(data => setBooking(data))
 
