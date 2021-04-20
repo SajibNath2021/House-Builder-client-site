@@ -22,7 +22,7 @@ const Navbar = () => {
               <Link class="nav-link margin active" to=''>about Us</Link>
               <Link class="nav-link margin active" to=''>Project</Link>
               <Link class="nav-link margin active" to='' >Contact</Link>
-              <Link class="nav-link margin active" to='/booksPay/:name' >Admin Panel</Link>
+              <Link class="nav-link margin active" to='/orderList' >Admin Panel</Link>
               <Link className="nav-link margin text-primary" ><FontAwesomeIcon icon={faUser} /> {loggedInUser.name || loggedInUser.displayName || loggedInUser.email}</Link>
               <Link class="nav-link margin active" to="/login" >Login</Link>
               <Link class="nav-link margin active btn " onClick={() => setLoggedInUser({})} to='/' >Sign Out</Link>
