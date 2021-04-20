@@ -20,7 +20,7 @@ const Review = () => {
             img: loggedInUser.photoURL
 
         }
-        const url = `http://localhost:5000/addReview`;
+        const url = `https://secure-cove-75912.herokuapp.com/addReview`;
         console.log(eventData);
         fetch(url, {
             method: 'POST',

@@ -20,7 +20,7 @@ const AddService = () => {
             imageURL: imageUrl
 
         }
-        const url = `http://localhost:5000/addServices`;
+        const url = 'https://secure-cove-75912.herokuapp.com/addServices';
         console.log(eventData);
         fetch(url, {
             method: 'POST',

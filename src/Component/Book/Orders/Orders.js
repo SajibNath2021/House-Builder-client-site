@@ -21,7 +21,7 @@ const Orders = () => {
 
     const [serviceData, setServiceData] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/booksPay/' + name)
+        fetch('https://secure-cove-75912.herokuapp.com/booksPay/' + name)
             .then(res => res.json())
             .then(data => setServiceData(data))
 
@@ -39,7 +39,7 @@ const Orders = () => {
 
 
         }
-        const url = `http://localhost:5000/payOrders`;
+        const url = `https://secure-cove-75912.herokuapp.com/payOrders`;
         console.log(eventData);
         fetch(url, {
             method: 'POST',

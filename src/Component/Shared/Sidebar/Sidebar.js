@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './Sidebar.css'
-import { faUserPlus, faSignOutAlt, faShoppingBag, faShoppingCart, faPlus, faComment, faHome } from '@fortawesome/free-solid-svg-icons';
-import { faFileAlt } from '@fortawesome/free-regular-svg-icons'
+import { faGripHorizontal,faUserPlus, faSignOutAlt, faShoppingBag, faShoppingCart, faPlus, faComment, faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { UserContext } from '../../../App';
 
@@ -13,7 +12,7 @@ const Sidebar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [isAdmin, setIsAdmin] = useState(false);
     useEffect(() => {
-        fetch('http://localhost:5000/Admin', {
+        fetch('https://secure-cove-75912.herokuapp.com/Admin', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email }),

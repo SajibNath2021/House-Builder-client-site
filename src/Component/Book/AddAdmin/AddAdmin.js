@@ -14,7 +14,7 @@ const AddAdmin = () => {
             email: data.email
 
         }
-        const url = `http://localhost:5000/addAdmin`;
+        const url = `https://secure-cove-75912.herokuapp.com/addAdmin`;
         fetch(url, {
             method: 'POST',
             headers: {
