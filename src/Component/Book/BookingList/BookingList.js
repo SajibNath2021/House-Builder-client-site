@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { UserContext } from '../../../App';
 import Sidebar from '../../Shared/Sidebar/Sidebar';
 import BookingListCard from './BookingListCard';
 const containerStyle = {
@@ -7,11 +8,16 @@ const containerStyle = {
     height: '100%'
 }
 
-const BookingList = () => {
-    const { email } = useParams();
-    const [booking, setBooking] = useState([]);
+const BookingList = () => {   
+
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    
+    const email = loggedInUser.email;
+    console.log(email);
+    const [booking, setBooking] = useState([]); 
+    console.log(booking);
     useEffect(() => {
-        fetch(`https://secure-cove-75912.herokuapp.com/bookingList?`+ email)
+        fetch(`https://secure-cove-75912.herokuapp.com/bookingList/${email}` )
             .then(res => res.json())
             .then(data => setBooking(data))
 

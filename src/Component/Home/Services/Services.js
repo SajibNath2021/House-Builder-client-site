@@ -10,6 +10,7 @@ import ServicesDetails from '../ServicesDetails/ServicesDetails';
 
 const Services = () => {
     const [serviceData, setServiceData] = useState([]);
+  
     useEffect(() => {
         fetch('https://secure-cove-75912.herokuapp.com/services')
         .then(res => res.json())

@@ -3,7 +3,8 @@ import { useHistory } from 'react-router';
 import './ServicesDetails.css'
 
 const ServicesDetails = ({ service }) => {
-    const { name, addPrice, imageURL, email } = service;
+    const { name, addPrice, imageURL} = service;
+   
     const history = useHistory();
     const handleBook = () => {
         history.push(`/booksPay/${name}`)
